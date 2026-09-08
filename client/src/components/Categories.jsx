@@ -1,15 +1,16 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import placeholder from '../assets/img/placeholder.jpg'
 import { fetchProducts } from '../api/products'
 import './Categories.css'
 
-const defaultCategories = [
-  { id: 1, title: 'Furniture & Home', count: '128 Listings', image: placeholder },
-  { id: 2, title: 'Electronics', count: '94 Listings', image: placeholder },
-  { id: 3, title: 'Fashion & Apparel', count: '210 Listings', image: placeholder },
-  { id: 4, title: 'Watches & Jewelry', count: '67 Listings', image: placeholder },
-  { id: 5, title: 'Collectibles', count: '145 Listings', image: placeholder },
-  { id: 6, title: 'Sporting Goods', count: '58 Listings', image: placeholder },
+export const defaultCategories = [
+  { id: 1, slug: 'furniture-home', title: 'Furniture & Home', count: '128 Listings', image: placeholder },
+  { id: 2, slug: 'electronics', title: 'Electronics', count: '94 Listings', image: placeholder },
+  { id: 3, slug: 'fashion-apparel', title: 'Fashion & Apparel', count: '210 Listings', image: placeholder },
+  { id: 4, slug: 'watches-jewelry', title: 'Watches & Jewelry', count: '67 Listings', image: placeholder },
+  { id: 5, slug: 'collectibles', title: 'Collectibles', count: '145 Listings', image: placeholder },
+  { id: 6, slug: 'sporting-goods', title: 'Sporting Goods', count: '58 Listings', image: placeholder },
 ]
 
 function CategoryCard({ category, onExplore }) {
@@ -54,6 +55,7 @@ function CategoryCard({ category, onExplore }) {
 }
 
 export default function Categories() {
+  const navigate = useNavigate()
   const [categories, setCategories] = useState(defaultCategories)
 
   useEffect(() => {
@@ -93,7 +95,11 @@ export default function Categories() {
 
         <div className="cat-grid">
           {categories.map((cat) => (
-            <CategoryCard key={cat.id} category={cat} />
+            <CategoryCard
+              key={cat.id}
+              category={cat}
+              onExplore={(category) => navigate(`/category/${category.slug}`)}
+            />
           ))}
         </div>
       </div>

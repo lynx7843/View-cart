@@ -2,6 +2,7 @@ import { Suspense, lazy } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
+import CategoryProducts from './pages/CategoryProducts'
 import ProtectedRoute from './components/ProtectedRoute'
 
 // Code-split: pulls in @google/model-viewer (~1MB, bundles Three.js), so it
@@ -28,6 +29,14 @@ function App() {
             <Suspense fallback={null}>
               <ExploreItem />
             </Suspense>
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/category/:slug"
+        element={
+          <ProtectedRoute>
+            <CategoryProducts />
           </ProtectedRoute>
         }
       />
