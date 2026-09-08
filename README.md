@@ -24,8 +24,10 @@ This project is decoupled into a separate client and API to ensure database cred
 
 ## 🚀 Live Demo
 
-*   **Frontend URL:** 
-*   **API Health Check:** 
+*   **Frontend URL:**
+```bash
+https://view-cart-git-main-lynx7843.vercel.app/login
+```
 
 ## ⚙️ Local Development Setup
 
