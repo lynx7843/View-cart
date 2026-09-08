@@ -1,5 +1,5 @@
 import { Navigate } from 'react-router-dom'
-import { isAuthenticated } from '../auth/demoAuth'
+import { isAuthenticated } from '../auth/auth'
 
 export default function ProtectedRoute({ children }) {
   if (!isAuthenticated()) {

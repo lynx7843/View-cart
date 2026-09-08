@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { isAuthenticated, getCurrentUser, logout } from '../auth/demoAuth'
+import { isAuthenticated, logout } from '../auth/auth'
 import './Navbar.css'
 
 const links = [
