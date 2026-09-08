@@ -1,0 +1,198 @@
+.login-page {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #eef1f4 0%, #eef0f6 60%, #eef1fb 100%);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  color: #1a1a1a;
+  padding: 40px 16px;
+  box-sizing: border-box;
+}
+
+.login-page * {
+  box-sizing: border-box;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 528px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(20, 20, 30, 0.08);
+  padding: 56px 64px 48px;
+}
+
+.login-icon-badge {
+  width: 56px;
+  height: 56px;
+  background: #e6f4ea;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+}
+
+.login-icon-badge svg {
+  width: 26px;
+  height: 26px;
+  stroke: #1e7a34;
+}
+
+.login-card h1 {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+  margin: 0 0 10px;
+  letter-spacing: -0.5px;
+}
+
+.login-subtitle {
+  text-align: center;
+  color: #6b7280;
+  font-size: 15px;
+  margin: 0 0 32px;
+}
+
+.login-card label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #1a1a1a;
+}
+
+.login-field {
+  margin-bottom: 20px;
+}
+
+.login-field-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.login-field-row label {
+  margin-bottom: 0;
+}
+
+.login-forgot {
+  font-size: 14px;
+  color: #1e7a34;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.login-forgot:hover {
+  text-decoration: underline;
+}
+
+.login-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #f2f3f5;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  transition: border-color 0.15s ease;
+}
+
+.login-input-wrap:focus-within {
+  border-color: #1e7a34;
+  background: #ffffff;
+}
+
+.login-input-wrap svg {
+  width: 18px;
+  height: 18px;
+  stroke: #6b7280;
+  margin-left: 14px;
+  flex-shrink: 0;
+}
+
+.login-input-wrap input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  padding: 14px 12px;
+  font-size: 15px;
+  color: #1a1a1a;
+  width: 100%;
+}
+
+.login-input-wrap input::placeholder {
+  color: #9ca3af;
+}
+
+.login-toggle-eye {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+}
+
+.login-toggle-eye svg {
+  margin-left: 0;
+  width: 18px;
+  height: 18px;
+  stroke: #1a1a1a;
+}
+
+.login-remember {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 4px 0 24px;
+  font-size: 14px;
+  color: #374151;
+  cursor: pointer;
+}
+
+.login-remember input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #1e7a34;
+  cursor: pointer;
+}
+
+.login-btn-signin {
+  width: 100%;
+  background: #1e7a34;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.15s ease;
+}
+
+.login-btn-signin:hover {
+  background: #17612a;
+}
+
+.login-btn-signin svg {
+  width: 18px;
+  height: 18px;
+  stroke: #ffffff;
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    padding: 40px 28px 36px;
+  }
+  .login-card h1 {
+    font-size: 26px;
+  }
+}
