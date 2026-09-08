@@ -1,17 +1,15 @@
 import { useState, useEffect, useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
 import CursorRing from './CursorRing'
 import placeholder from '../assets/img/placeholder.jpg'
 import { fetchProducts } from '../api/products'
+import { formatPrice } from '../utils/formatPrice'
 import './BestSelling.css'
 
 const AUTO_DELAY = 3000
 
-function formatPrice(price) {
-  if (typeof price !== 'number') return null
-  return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(price / 100)
-}
-
 export default function BestSelling() {
+  const navigate = useNavigate()
   const [items, setItems] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
@@ -144,7 +142,12 @@ export default function BestSelling() {
                       )}
                       {isFeatured && (
                         <div className={`best-selling-card-overlay${isHovered ? ' visible' : ''}`}>
-                          <button className="best-selling-card-btn">Explore Item</button>
+                          <button
+                            className="best-selling-card-btn"
+                            onClick={() => navigate(`/explore/${item.id}`)}
+                          >
+                            Explore Item
+                          </button>
                         </div>
                       )}
                     </div>
