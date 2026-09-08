@@ -1,0 +1,220 @@
+.categories-page {
+  background: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  padding: 0 0 60px;
+}
+
+.categories-container {
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 72px 20px 0;
+}
+
+/* Header */
+.categories-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.categories-tag {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #1e7a34;
+  margin: 0 0 8px;
+}
+
+.categories-title {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: #1a1a1a;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.categories-sub {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 8px 0 0;
+}
+
+.categories-view-all-btn {
+  background: #1e7a34;
+  border: none;
+  border-radius: 40px;
+  padding: 12px 24px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  letter-spacing: 0.01em;
+  transition: background 0.2s, transform 0.15s;
+  white-space: nowrap;
+  margin-bottom: 4px;
+}
+
+.categories-view-all-btn:hover {
+  background: #17612a;
+  transform: translateY(-1px);
+}
+
+/* Grid */
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 900px) {
+  .cat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .cat-grid {
+    grid-template-columns: 1fr;
+  }
+  .categories-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}
+
+/* Card */
+.cat-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #f2f3f5;
+  cursor: pointer;
+  transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 24px rgba(20, 20, 30, 0.06);
+  aspect-ratio: 4 / 3;
+}
+
+.cat-card.hovered {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 0 16px 48px rgba(20, 20, 30, 0.14);
+}
+
+.cat-card-bg {
+  position: absolute;
+  inset: 0;
+}
+
+.cat-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cat-card.hovered .cat-card-img {
+  transform: scale(1.06);
+}
+
+.cat-card-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #e6f4ea 0%, #d6ede0 100%);
+}
+
+.cat-placeholder-text {
+  font-size: 12px;
+  font-weight: 400;
+  color: #6b7280;
+  letter-spacing: 0.04em;
+}
+
+.cat-card-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10, 10, 10, 0.72) 0%, rgba(10, 10, 10, 0.1) 55%, transparent 100%);
+  transition: opacity 0.35s ease;
+  opacity: 0.75;
+}
+
+.cat-card-gradient.hovered {
+  opacity: 1;
+}
+
+.cat-card-content {
+  position: absolute;
+  inset: 0;
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.cat-card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.cat-card-count {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #a7f3c4;
+}
+
+.cat-card-title {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  color: #fff;
+  line-height: 1.15;
+  margin: 0;
+}
+
+/* Actions */
+.cat-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+.cat-card-actions.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.cat-explore-btn {
+  background: rgba(255, 255, 255, 0.92);
+  border: none;
+  border-radius: 40px;
+  padding: 8px 18px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1a1a;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: background 0.2s;
+}
+
+.cat-explore-btn:hover {
+  background: #fff;
+}
