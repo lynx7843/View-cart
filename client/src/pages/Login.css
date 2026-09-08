@@ -56,14 +56,26 @@
   margin: 0 0 8px;
 }
 
-.login-demo-hint {
-  text-align: center;
-  color: #1e7a34;
-  background: #e6f4ea;
+.login-cold-start-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  text-align: left;
+  color: #92400e;
+  background: #fef3c7;
   border-radius: 8px;
-  font-size: 13px;
-  padding: 8px 12px;
+  font-size: 12.5px;
+  line-height: 1.5;
+  padding: 10px 12px;
   margin: 0 0 24px;
+}
+
+.login-cold-start-notice svg {
+  width: 16px;
+  height: 16px;
+  stroke: #92400e;
+  flex-shrink: 0;
+  margin-top: 1px;
 }
 
 .login-error {
@@ -162,23 +174,6 @@
   width: 18px;
   height: 18px;
   stroke: #1a1a1a;
-}
-
-.login-remember {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 4px 0 24px;
-  font-size: 14px;
-  color: #374151;
-  cursor: pointer;
-}
-
-.login-remember input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
-  accent-color: #1e7a34;
-  cursor: pointer;
 }
 
 .login-btn-signin {

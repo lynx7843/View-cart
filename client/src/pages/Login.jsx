@@ -8,7 +8,6 @@ function Login() {
   const [showPassword, setShowPassword] = useState(false)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [rememberMe, setRememberMe] = useState(false)
   const [error, setError] = useState('')
   const [submitting, setSubmitting] = useState(false)
 
@@ -39,6 +38,16 @@ function Login() {
 
         <h1>Welcome back</h1>
         <p className="login-subtitle">Sign in to view your cart and track orders</p>
+
+        <p className="login-cold-start-notice">
+          <svg viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z" />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg>
+          The backend runs on Render's free tier, so it may take up to a minute to wake up if it's
+          been inactive for 15+ minutes. Please be patient after clicking Sign In.
+        </p>
 
         <form onSubmit={handleSubmit} noValidate>
           {error && <p className="login-error">{error}</p>}
@@ -90,15 +99,6 @@ function Login() {
               </button>
             </div>
           </div>
-
-          <label className="login-remember">
-            <input
-              type="checkbox"
-              checked={rememberMe}
-              onChange={(e) => setRememberMe(e.target.checked)}
-            />
-            Remember me on this device
-          </label>
 
           <button type="submit" className="login-btn-signin" disabled={submitting}>
             {submitting ? 'Signing in…' : 'Sign In'}
