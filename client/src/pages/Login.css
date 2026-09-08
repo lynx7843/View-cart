@@ -88,6 +88,16 @@
   margin: 0 0 20px;
 }
 
+.login-test-credentials {
+  text-align: center;
+  color: #1e7a34;
+  background: #e6f4ea;
+  border-radius: 8px;
+  font-size: 12.5px;
+  padding: 10px 12px;
+  margin: 4px 0 20px;
+}
+
 .login-card label {
   display: block;
   font-size: 14px;

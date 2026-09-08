@@ -100,6 +100,10 @@ function Login() {
             </div>
           </div>
 
+          <p className="login-test-credentials">
+            Test login — Email: <strong>dilan@gmail.com</strong> · Password: <strong>password1234</strong>
+          </p>
+
           <button type="submit" className="login-btn-signin" disabled={submitting}>
             {submitting ? 'Signing in…' : 'Sign In'}
             <svg viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
