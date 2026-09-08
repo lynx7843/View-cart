@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import '@google/model-viewer'
 import Navbar from '../components/Navbar'
+import BackButton from '../components/BackButton'
 import placeholder from '../assets/img/placeholder.jpg'
 import { fetchProduct } from '../api/products'
 import { formatPrice } from '../utils/formatPrice'
@@ -11,7 +12,6 @@ const VIEWS = ['image', 'model']
 
 export default function ExploreItem() {
   const { id } = useParams()
-  const navigate = useNavigate()
 
   const [product, setProduct] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -48,12 +48,7 @@ export default function ExploreItem() {
       <Navbar />
       <div className="page-content">
         <div className="explore-content">
-          <button className="explore-back-btn" onClick={() => navigate('/dashboard')}>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="15 18 9 12 15 6" />
-            </svg>
-            Back
-          </button>
+          <BackButton to="/dashboard" />
 
           {loading && <p className="explore-status">Loading item…</p>}
           {!loading && error && <p className="explore-status explore-status-error">{error}</p>}

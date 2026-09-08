@@ -1,0 +1,93 @@
+.category-products-page {
+  min-height: 100vh;
+  background: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  color: #1a1a1a;
+}
+
+.category-products-content {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+
+.category-products-title {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: #1a1a1a;
+  margin: 0 0 32px;
+}
+
+.category-products-status {
+  font-size: 14px;
+  color: #6b7280;
+  padding: 40px 0;
+}
+
+.category-products-status-error {
+  color: #b42318;
+}
+
+.category-products-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.category-product-card {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.category-product-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: #e6f4ea;
+}
+
+.category-product-name {
+  font-size: 15.5px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  color: #1a1a1a;
+  margin: 14px 16px 0;
+}
+
+.category-product-price {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e7a34;
+  margin: 4px 16px 0;
+}
+
+.category-product-explore-btn {
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #1a1a1a;
+  background: #ffffff;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 10px 16px;
+  margin: 14px 16px 16px;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+
+.category-product-explore-btn:hover {
+  color: #1e7a34;
+  border-color: #1e7a34;
+  background: #e6f4ea;
+}
+
+@media (max-width: 480px) {
+  .category-products-grid {
+    grid-template-columns: 1fr;
+  }
+}
