@@ -69,3 +69,9 @@ npm run dev
 - Authentication: Implement secure user sessions and a checkout flow (omitted in this version to provide frictionless access for reviewers).
 
 ## Preview
+
+| ![Sign In](img/login.png) | ![Home](img/home.png) |
+| :---: | :---: |
+| **Sign In** | **Home** |
+| ![Category Explorer](img/category_explorer.png) | ![Item Explorer](img/item_explorer.png) |
+| **Category Explorer** | **Item Explorer** |
