@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { attemptLogin, DEMO_CREDENTIALS } from '../auth/demoAuth'
+import { login } from '../auth/auth'
 import './Login.css'
 
 function Login() {
@@ -10,15 +10,19 @@ function Login() {
   const [password, setPassword] = useState('')
   const [rememberMe, setRememberMe] = useState(false)
   const [error, setError] = useState('')
+  const [submitting, setSubmitting] = useState(false)
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // Demo-only auth for now — no backend wired up yet.
-    if (attemptLogin(email, password)) {
-      setError('')
+    setError('')
+    setSubmitting(true)
+    try {
+      await login(email, password)
       navigate('/dashboard')
-    } else {
-      setError('Invalid credentials. Use the demo login below.')
+    } catch (err) {
+      setError(err.message || 'Unable to sign in.')
+    } finally {
+      setSubmitting(false)
     }
   }
 
@@ -35,10 +39,6 @@ function Login() {
 
         <h1>Welcome back</h1>
         <p className="login-subtitle">Sign in to view your cart and track orders</p>
-        <p className="login-demo-hint">
-          Demo mode — sign in with <strong>{DEMO_CREDENTIALS.email}</strong> /{' '}
-          <strong>{DEMO_CREDENTIALS.password}</strong> to view the dashboard.
-        </p>
 
         <form onSubmit={handleSubmit} noValidate>
           {error && <p className="login-error">{error}</p>}
@@ -52,8 +52,8 @@ function Login() {
               </svg>
               <input
                 id="email"
-                type="text"
-                placeholder="user"
+                type="email"
+                placeholder="name@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -100,8 +100,8 @@ function Login() {
             Remember me on this device
           </label>
 
-          <button type="submit" className="login-btn-signin">
-            Sign In
+          <button type="submit" className="login-btn-signin" disabled={submitting}>
+            {submitting ? 'Signing in…' : 'Sign In'}
             <svg viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M5 12h14" />
               <path d="m12 5 7 7-7 7" />
