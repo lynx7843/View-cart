@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import placeholder from '../assets/img/placeholder.jpg'
+import { fetchProducts } from '../api/products'
 import './Categories.css'
 
 const defaultCategories = [
@@ -53,7 +54,31 @@ function CategoryCard({ category, onExplore }) {
 }
 
 export default function Categories() {
-  const [categories] = useState(defaultCategories)
+  const [categories, setCategories] = useState(defaultCategories)
+
+  useEffect(() => {
+    let cancelled = false
+
+    fetchProducts()
+      .then((products) => {
+        if (cancelled || products.length === 0) return
+        // All current listings are Furniture & Home items — use the first
+        // product's real image for that category's thumbnail.
+        const featuredImage = products[0]?.modelimg || placeholder
+        setCategories((prev) =>
+          prev.map((cat) =>
+            cat.title === 'Furniture & Home' ? { ...cat, image: featuredImage } : cat
+          )
+        )
+      })
+      .catch(() => {
+        // Keep the standard placeholder image on failure.
+      })
+
+    return () => {
+      cancelled = true
+    }
+  }, [])
 
   return (
     <section className="categories-page" id="categories">
