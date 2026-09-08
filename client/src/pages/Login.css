@@ -53,7 +53,27 @@
   text-align: center;
   color: #6b7280;
   font-size: 15px;
-  margin: 0 0 32px;
+  margin: 0 0 8px;
+}
+
+.login-demo-hint {
+  text-align: center;
+  color: #1e7a34;
+  background: #e6f4ea;
+  border-radius: 8px;
+  font-size: 13px;
+  padding: 8px 12px;
+  margin: 0 0 24px;
+}
+
+.login-error {
+  text-align: center;
+  color: #b42318;
+  background: #fef2f2;
+  border-radius: 8px;
+  font-size: 13.5px;
+  padding: 10px 12px;
+  margin: 0 0 20px;
 }
 
 .login-card label {
