@@ -3,7 +3,11 @@ import { Link, useNavigate } from 'react-router-dom'
 import { isAuthenticated, getCurrentUser, logout } from '../auth/demoAuth'
 import './Navbar.css'
 
-const links = ['Best Selling', 'Categories', 'About Us']
+const links = [
+  { label: 'Best Selling', href: '#best-selling' },
+  { label: 'Categories', href: '#categories' },
+  { label: 'About Us', href: '#about-us' },
+]
 
 export default function Navbar() {
   const [active, setActive] = useState('Best Selling')
@@ -25,12 +29,12 @@ export default function Navbar() {
         <div className="nav-center">
           {links.map((link) => (
             <a
-              key={link}
-              className={`nav-link ${active === link ? 'active' : ''}`}
-              onClick={() => setActive(link)}
-              href="#"
+              key={link.label}
+              className={`nav-link ${active === link.label ? 'active' : ''}`}
+              onClick={() => setActive(link.label)}
+              href={link.href}
             >
-              {link}
+              {link.label}
             </a>
           ))}
           <div className="nav-search">

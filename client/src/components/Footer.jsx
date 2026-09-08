@@ -6,7 +6,7 @@ export default function Footer() {
   const [email, setEmail] = useState('')
 
   return (
-    <footer className="footer">
+    <footer className="footer" id="about-us">
       <div className="footer-inner">
         <div className="footer-grid">
           {/* Col 1: Brand */}

@@ -1,4 +1,5 @@
 .best-selling {
+  scroll-margin-top: 64px;
   background: #ffffff;
   display: flex;
   flex-direction: column;
