@@ -1,15 +1,25 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { attemptLogin, DEMO_CREDENTIALS } from '../auth/demoAuth'
 import './Login.css'
 
 function Login() {
+  const navigate = useNavigate()
   const [showPassword, setShowPassword] = useState(false)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [rememberMe, setRememberMe] = useState(false)
+  const [error, setError] = useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Frontend only for now — no backend wired up yet.
+    // Demo-only auth for now — no backend wired up yet.
+    if (attemptLogin(email, password)) {
+      setError('')
+      navigate('/dashboard')
+    } else {
+      setError('Invalid credentials. Use the demo login below.')
+    }
   }
 
   return (
@@ -25,8 +35,14 @@ function Login() {
 
         <h1>Welcome back</h1>
         <p className="login-subtitle">Sign in to view your cart and track orders</p>
+        <p className="login-demo-hint">
+          Demo mode — sign in with <strong>{DEMO_CREDENTIALS.email}</strong> /{' '}
+          <strong>{DEMO_CREDENTIALS.password}</strong> to view the dashboard.
+        </p>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} noValidate>
+          {error && <p className="login-error">{error}</p>}
+
           <div className="login-field">
             <label htmlFor="email">Email address</label>
             <div className="login-input-wrap">
@@ -36,8 +52,8 @@ function Login() {
               </svg>
               <input
                 id="email"
-                type="email"
-                placeholder="name@example.com"
+                type="text"
+                placeholder="user"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
