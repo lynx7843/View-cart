@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { isAuthenticated, getCurrentUser, logout } from '../auth/demoAuth'
 import './Navbar.css'
 
-const links = ['Best Selling', 'Categories']
+const links = ['Best Selling', 'Categories', 'About Us']
 
 export default function Navbar() {
   const [active, setActive] = useState('Best Selling')
