@@ -1,6 +1,7 @@
 import Navbar from '../components/Navbar'
 import BestSelling from '../components/BestSelling'
 import Categories from '../components/Categories'
+import Footer from '../components/Footer'
 import './Dashboard.css'
 
 export default function Dashboard() {
@@ -11,6 +12,7 @@ export default function Dashboard() {
         <BestSelling />
         <Categories />
       </div>
+      <Footer />
     </div>
   )
 }

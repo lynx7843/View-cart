@@ -56,11 +56,10 @@ export default function Categories() {
   const [categories] = useState(defaultCategories)
 
   return (
-    <section className="categories-page">
+    <section className="categories-page" id="categories">
       <div className="categories-container">
         <div className="categories-header">
           <div>
-            <p className="categories-tag">Shop by Category</p>
             <h2 className="categories-title">Categories</h2>
             <p className="categories-sub">Discover everything we have to offer</p>
           </div>

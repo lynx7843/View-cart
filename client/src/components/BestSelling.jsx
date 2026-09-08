@@ -74,7 +74,7 @@ export default function BestSelling() {
 
   return (
     <CursorRing>
-      <section className="best-selling">
+      <section className="best-selling" id="best-selling">
         <h2 className="best-selling-title">Best selling</h2>
         <div className="best-selling-wrapper">
           <button className="best-selling-arrow" onClick={prev} aria-label="Previous">
