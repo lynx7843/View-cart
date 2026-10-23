@@ -8,15 +8,13 @@ import { fetchProduct } from '../api/products'
 import { formatPrice } from '../utils/formatPrice'
 import './ExploreItem.css'
 
-const VIEWS = ['image', 'model']
-
 export default function ExploreItem() {
   const { id } = useParams()
 
   const [product, setProduct] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
-  const [view, setView] = useState(0)
+  const [focusedView, setFocusedView] = useState('image')
 
   useEffect(() => {
     let cancelled = false
@@ -39,10 +37,6 @@ export default function ExploreItem() {
     }
   }, [id])
 
-  const goTo = (idx) => setView((idx + VIEWS.length) % VIEWS.length)
-  const prevView = () => goTo(view - 1)
-  const nextView = () => goTo(view + 1)
-
   return (
     <div className="explore-page">
       <Navbar />
@@ -61,56 +55,49 @@ export default function ExploreItem() {
               )}
               <p className="explore-desc">{product.desc}</p>
 
-              <div className="explore-viewer-wrap">
-                <button className="explore-viewer-arrow" onClick={prevView} aria-label="Previous view">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="15 18 9 12 15 6" />
-                  </svg>
-                </button>
-
-                <div className="explore-viewer">
-                  <div
-                    className="explore-viewer-track"
-                    style={{ transform: `translateX(-${view * (100 / VIEWS.length)}%)` }}
+              <div className="explore-viewer-grid">
+                <section className={`explore-viewer-card${focusedView === 'image' ? ' focused' : ''}`}>
+                  <button
+                    type="button"
+                    className="explore-viewer-focus"
+                    aria-pressed={focusedView === 'image'}
+                    onClick={() => setFocusedView('image')}
                   >
-                    <div className="explore-viewer-slide">
-                      <img
-                        src={product.modelimg || placeholder}
-                        alt={product.name}
-                        className="explore-viewer-image"
-                      />
-                    </div>
-                    <div className="explore-viewer-slide">
-                      {product.modelUrl ? (
-                        <model-viewer
-                          src={product.modelUrl}
-                          camera-controls="true"
-                          auto-rotate="true"
-                          shadow-intensity="1"
-                          className="explore-viewer-model"
-                        />
-                      ) : (
-                        <div className="explore-viewer-model-missing">3D model unavailable</div>
-                      )}
-                    </div>
+                    <span>Image view</span>
+                    {focusedView === 'image' && <span className="explore-viewer-selected">Focused</span>}
+                  </button>
+                  <div className="explore-viewer">
+                    <img
+                      src={product.modelimg || placeholder}
+                      alt={product.name}
+                      className="explore-viewer-image"
+                    />
                   </div>
-                </div>
-
-                <button className="explore-viewer-arrow" onClick={nextView} aria-label="Next view">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="9 18 15 12 9 6" />
-                  </svg>
-                </button>
-              </div>
-
-              <div className="explore-viewer-dots">
-                {VIEWS.map((label, i) => (
-                  <div
-                    key={label}
-                    className={`explore-viewer-dot${i === view ? ' active-dot' : ''}`}
-                    onClick={() => goTo(i)}
-                  />
-                ))}
+                </section>
+                <section className={`explore-viewer-card${focusedView === 'model' ? ' focused' : ''}`}>
+                  <button
+                    type="button"
+                    className="explore-viewer-focus"
+                    aria-pressed={focusedView === 'model'}
+                    onClick={() => setFocusedView('model')}
+                  >
+                    <span>3D view</span>
+                    {focusedView === 'model' && <span className="explore-viewer-selected">Focused</span>}
+                  </button>
+                  <div className="explore-viewer">
+                    {product.modelUrl ? (
+                      <model-viewer
+                        src={product.modelUrl}
+                        camera-controls="true"
+                        auto-rotate="true"
+                        shadow-intensity="1"
+                        className="explore-viewer-model"
+                      />
+                    ) : (
+                      <div className="explore-viewer-model-missing">3D model unavailable</div>
+                    )}
+                  </div>
+                </section>
               </div>
 
               <div className="explore-actions">
