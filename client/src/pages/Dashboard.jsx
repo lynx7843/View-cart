@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import BestSelling from '../components/BestSelling'
 import Categories from '../components/Categories'
@@ -5,6 +7,13 @@ import Footer from '../components/Footer'
 import './Dashboard.css'
 
 export default function Dashboard() {
+  const { hash } = useLocation()
+
+  useEffect(() => {
+    const section = document.getElementById(hash.slice(1))
+    section?.scrollIntoView({ behavior: 'smooth' })
+  }, [hash])
+
   return (
     <div className="dashboard-page">
       <Navbar />

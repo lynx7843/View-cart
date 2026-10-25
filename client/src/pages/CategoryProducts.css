@@ -6,7 +6,7 @@
 }
 
 .category-products-content {
-  max-width: 720px;
+  max-width: 1170px;
   margin: 0 auto;
   padding: 40px 20px 80px;
 }
@@ -31,8 +31,8 @@
 
 .category-products-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 40px;
 }
 
 .category-product-card {
@@ -84,6 +84,12 @@
   color: #1e7a34;
   border-color: #1e7a34;
   background: #e6f4ea;
+}
+
+@media (max-width: 900px) {
+  .category-products-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 480px) {
