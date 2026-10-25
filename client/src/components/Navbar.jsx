@@ -11,8 +11,17 @@ const links = [
 
 export default function Navbar() {
   const [active, setActive] = useState('Best Selling')
+  const [searchQuery, setSearchQuery] = useState(
+    () => new URLSearchParams(window.location.search).get('q') || ''
+  )
   const navigate = useNavigate()
   const authed = isAuthenticated()
+
+  const handleSearch = (event) => {
+    event.preventDefault()
+    const query = searchQuery.trim()
+    if (query) navigate(`/search?q=${encodeURIComponent(query)}`)
+  }
 
   const handleLogout = () => {
     logout()
@@ -37,13 +46,21 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <div className="nav-search">
-            <svg className="search-icon" viewBox="0 0 16 16">
-              <circle cx="6.5" cy="6.5" r="5" />
-              <line x1="10.5" y1="10.5" x2="14" y2="14" />
-            </svg>
-            Search
-          </div>
+          <form className="nav-search" role="search" onSubmit={handleSearch}>
+            <input
+              type="search"
+              aria-label="Search items"
+              placeholder="Search items"
+              value={searchQuery}
+              onChange={(event) => setSearchQuery(event.target.value)}
+            />
+            <button type="submit" aria-label="Submit search">
+              <svg className="search-icon" viewBox="0 0 16 16">
+                <circle cx="6.5" cy="6.5" r="5" />
+                <line x1="10.5" y1="10.5" x2="14" y2="14" />
+              </svg>
+            </button>
+          </form>
         </div>
 
         {/* Right side */}
