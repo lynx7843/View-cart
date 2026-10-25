@@ -161,7 +161,7 @@
 .best-selling-dots {
   display: flex;
   gap: 8px;
-  margin-top: 36px;
+  margin-top: 76px;
   justify-content: center;
   position: relative;
   z-index: 1;
