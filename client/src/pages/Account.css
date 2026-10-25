@@ -1,0 +1,137 @@
+.account-page {
+  min-height: 100vh;
+  background: #f7f8f7;
+  color: #1a1a1a;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+.account-content {
+  width: min(100% - 40px, 760px);
+  margin: 0 auto;
+  padding: 36px 0 80px;
+}
+
+.account-card {
+  margin-top: 24px;
+  padding: 36px;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 8px 28px rgba(20, 20, 30, 0.06);
+}
+
+.account-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 28px;
+}
+
+.account-avatar {
+  width: 88px;
+  height: 88px;
+  flex: 0 0 88px;
+  border-radius: 50%;
+  background: #e6f4ea;
+}
+
+.account-title {
+  margin: 0 0 6px;
+  font-size: 28px;
+  letter-spacing: -0.4px;
+}
+
+.account-subtitle {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.account-form {
+  display: grid;
+  gap: 20px;
+}
+
+.account-field {
+  display: grid;
+  gap: 8px;
+}
+
+.account-field label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.account-field input {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 9px;
+  background: #ffffff;
+  color: #1a1a1a;
+  font: inherit;
+}
+
+.account-field input:focus {
+  outline: 2px solid rgba(30, 122, 52, 0.2);
+  border-color: #1e7a34;
+}
+
+.account-field input::placeholder {
+  color: #9ca3af;
+}
+
+.account-message {
+  margin: 0;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.account-message-error {
+  color: #b42318;
+}
+
+.account-submit {
+  min-height: 48px;
+  border: 0;
+  border-radius: 9px;
+  background: #1e7a34;
+  color: #ffffff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.account-submit:hover {
+  background: #17612a;
+}
+
+.account-submit:focus-visible {
+  outline: 2px solid #1e7a34;
+  outline-offset: 3px;
+}
+
+@media (max-width: 520px) {
+  .account-content {
+    width: min(100% - 28px, 760px);
+    padding-top: 24px;
+  }
+
+  .account-card {
+    padding: 24px 20px;
+  }
+
+  .account-avatar {
+    width: 68px;
+    height: 68px;
+    flex-basis: 68px;
+  }
+
+  .account-title {
+    font-size: 24px;
+  }
+}

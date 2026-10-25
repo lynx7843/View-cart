@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
 import CategoryProducts from './pages/CategoryProducts'
+import Account from './pages/Account'
 import ProtectedRoute from './components/ProtectedRoute'
 
 // Code-split: pulls in @google/model-viewer (~1MB, bundles Three.js), so it
@@ -19,6 +20,14 @@ function App() {
         element={
           <ProtectedRoute>
             <Dashboard />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/account"
+        element={
+          <ProtectedRoute>
+            <Account />
           </ProtectedRoute>
         }
       />
