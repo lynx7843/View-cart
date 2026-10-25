@@ -28,14 +28,14 @@ export default function Navbar() {
         {/* Center nav */}
         <div className="nav-center">
           {links.map((link) => (
-            <a
+            <Link
               key={link.label}
               className={`nav-link ${active === link.label ? 'active' : ''}`}
               onClick={() => setActive(link.label)}
-              href={link.href}
+              to={`/dashboard${link.href}`}
             >
               {link.label}
-            </a>
+            </Link>
           ))}
           <div className="nav-search">
             <svg className="search-icon" viewBox="0 0 16 16">
