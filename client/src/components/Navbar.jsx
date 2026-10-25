@@ -50,7 +50,7 @@ export default function Navbar() {
         <div className="nav-right">
           {authed ? (
             <>
-              <Link to="/dashboard" className="nav-account">
+              <Link to="/account" className="nav-account">
                 <svg className="account-icon" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M20 21a8 8 0 0 0-16 0" />
                   <circle cx="12" cy="7" r="4" />
